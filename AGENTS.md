@@ -8,11 +8,11 @@ Keep application code and bot editors in `src/`, served assets in `public/assets
 
 ## Verified commands
 
-From the root, use `npm install`, `npm run dev` (5173), `npm run typecheck`, and `npm run build` (types plus `dist/`). Typecheck and build passed during implementation. `npm run preview` serves the build locally at 4173.
+From the root: `npm install`, `npm run dev` (5173), `npm run typecheck`, and `npm run build` (types plus `dist/`). `npm run preview` serves at 4173.
 
 ## Product and visual conventions
 
-Packbot has five smooth cartoon bots: Orbit, Scout, Dash, Ledger, and Bloom, with no fur, fuzzy texture, or fluffy anatomy. The vivid alternative uses cobalt, orange, acid lime, ink and warm white, a custom lowercase vector wordmark, rounded bold typography and pill controls. Preserve the earlier pastel design in `main`; follow the current alternative in `DESIGN.md`. Use semantic HTML, labeled controls, visible focus and reduced-motion support. New interface copy must not include demo/test labels, disclaimers, em dashes, invented testimonials, or performance claims.
+Packbot has five smooth sculptural cartoon bots with capsule eyes: graphite Orbit, cobalt Scout, cyan Dash, orange Ledger, and lime Bloom. No fur or fuzzy anatomy. Preserve the approved minimalist face and lowercase wordmark. Orange, cobalt and lime sections alternate with quiet reading surfaces; follow `DESIGN.md` and preserve pastel `main`. Orbit's silent greeting plays once, with click replay; mobile and reduced motion mount a static image. Use semantic HTML, labeled controls and visible focus. No demo/test labels, disclaimers, em dashes, invented testimonials or performance claims.
 
 ## Functionality and validation
 
@@ -20,4 +20,4 @@ Each saved setup belongs to one bot and uses its own editor. Keep V2 documents b
 
 ## Security and boundaries
 
-Development, dependencies, builds, and previews remain local. Nicol authorized publishing this frontend to the existing `SolClaude33/Packbot` GitHub repository. Preserve remote history and use normal pushes; do not create another repository or deploy to Vercel. Vercel configuration prepares the project for Nicol's deployment. No backend, financial execution, credential collection, or analytics is authorized. Use Higgsfield only for planned media, at most three credits per image. Keep credentials, tokens, private paths, and confidential data out of code and notes.
+Development, dependencies, builds, and previews remain local. Published pastel `main` uses `SolClaude33/Packbot`; the vivid alternative stays local until requested. Preserve remote history and use normal pushes; do not create another repository or deploy to Vercel. No backend, financial execution, credential collection or analytics is authorized. Use Higgsfield only for planned assets, verified at most three credits per image; generated site videos use Kling 3.0 standard, silent. Keep credentials, tokens, private paths and confidential data out of code and notes.

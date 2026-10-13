@@ -3,6 +3,7 @@ import { ArrowDown, ArrowRight, Check, ChevronDown, CircleDot, FileJson, Menu, P
 import { specialistById, specialists, type SpecialistId } from './model'
 import { MAX_TEXT, saveLandingDraft } from './storage'
 import { PackbotMark } from './Brand'
+import { OrbitMedia } from './OrbitMedia'
 import { useReveal } from './useReveal'
 
 const asset = (id: SpecialistId) => `/assets/${id}.webp`
@@ -27,7 +28,7 @@ const heroMissions = specialists.filter((person) => person.id !== 'orbit')
 function HeroDiagram() {
   return <div className="hero-diagram" aria-label="Orbit connects four specialist bots">
     <svg className="hero-connectors" viewBox="0 0 640 620" preserveAspectRatio="none" aria-hidden="true"><path d="M245 310C350 310 348 95 455 95" /><path d="M245 310C350 310 348 235 455 235" /><path d="M245 310C350 310 348 385 455 385" /><path d="M245 310C350 310 348 530 455 530" /></svg>
-    <div className="orbit-stage"><span className="orbit-label">Crew lead</span><div className="orbit-blob"><img src={asset('orbit')} alt="Orbit, the orchestrator" fetchPriority="high" /></div><strong>Orbit</strong><small>Orchestrator</small></div>
+    <div className="orbit-stage"><span className="orbit-label">Crew lead</span><div className="orbit-blob"><OrbitMedia /></div><strong>Orbit</strong><small>Orchestrator</small></div>
     <div className="mission-card-grid">{heroMissions.map((person, index) => <a className={`hero-mission mission-${person.id}`} href={`/workspace?bot=${person.id}`} key={person.id} style={{ '--mission-index': index } as React.CSSProperties}><span>{person.role}</span><img src={asset(person.id)} alt="" /><div><strong>{person.name}</strong><small>{person.role === 'Research' ? 'Build the context' : person.role === 'Sniper' ? 'Shape the entry' : person.role === 'Trader' ? 'Write the rules' : 'Prepare the launch'}</small></div><ArrowRight size={16} /></a>)}</div>
   </div>
 }
@@ -56,9 +57,9 @@ function Team() {
   return <section className="team-section" id="pack" data-reveal>
     <div className="section-heading centered"><p className="eyebrow">Say hello to the crew</p><h2>One team captain.<br /><span>Four focused specialists.</span></h2></div>
     <div className="team-tabs" aria-label="Choose a specialist">
-      {specialists.map((person) => <button key={person.id} aria-pressed={selected === person.id} onClick={() => setSelected(person.id)}><img src={asset(person.id)} alt="" loading="lazy" /><span><strong>{person.name}</strong><small>{person.role}</small></span></button>)}
+      {specialists.map((person) => <button className={`bot-${person.id}`} key={person.id} aria-pressed={selected === person.id} onClick={() => setSelected(person.id)}><img src={asset(person.id)} alt="" loading="lazy" /><span><strong>{person.name}</strong><small>{person.role}</small></span></button>)}
     </div>
-    <div className={`team-feature tone-${current.id}`} key={current.id} aria-live="polite">
+    <div className={`team-feature tone-${current.id}`} data-bot={current.id} key={current.id} aria-live="polite">
       <div className="team-portrait"><span className="portrait-blob" /><img src={asset(current.id)} alt="" loading="lazy" /></div>
       <div className="team-story">
         <p className="role-pill">{current.role}</p>
@@ -81,7 +82,7 @@ const presets: Preset[] = [
 ]
 
 function StartingPoints({ onSelect }: { onSelect: (preset: Preset) => void }) {
-  return <section className="starting-section" id="starting-points" data-reveal><div className="section-heading"><p className="eyebrow">Start with the job</p><h2>What does your<br /><span>next move need?</span></h2><p>Pick a starting point for any bot. Your brief and settings stay yours to shape.</p></div><div className="preset-list">{presets.map((preset) => <article className={`preset-card ${preset.tone}`} key={preset.title}><div><p>{preset.label}</p><h3>{preset.title}</h3><ul>{preset.tasks.map((task) => <li key={task}><Check size={15} />{task}</li>)}</ul></div><img className="preset-mascot" src={asset(preset.specialist)} alt="" loading="lazy" /><button className="button button-ink" onClick={() => onSelect(preset)}>Use this brief <ArrowRight size={16} /></button></article>)}</div></section>
+  return <section className="starting-section" id="starting-points" data-reveal><div className="section-heading"><p className="eyebrow">Start with the job</p><h2>What does your<br /><span>next move need?</span></h2><p>Pick a starting point for any bot. Your brief and settings stay yours to shape.</p></div><div className="preset-list">{presets.map((preset) => <article className={`preset-card preset-${preset.specialist}`} data-bot={preset.specialist} key={preset.title}><div><p>{preset.label}</p><h3>{preset.title}</h3><ul>{preset.tasks.map((task) => <li key={task}><Check size={15} />{task}</li>)}</ul></div><img className="preset-mascot" src={asset(preset.specialist)} alt="" loading="lazy" /><button className="button button-ink" onClick={() => onSelect(preset)}>Use this brief <ArrowRight size={16} /></button></article>)}</div></section>
 }
 
 const missions = [
@@ -95,7 +96,7 @@ const missions = [
 function BotMissions() {
   const [selected, setSelected] = useState(0)
   const mission = missions[selected]
-  return <section className="handoff-section" data-reveal><div className="section-heading"><p className="eyebrow">A workspace for every mission</p><h2>Pick the job.<br /><span>Meet the right bot.</span></h2></div><div className="handoff-board"><div className="handoff-track mission-track" aria-label="Choose a bot mission">{missions.map((item, index) => <button key={item.id} aria-pressed={selected === index} onClick={() => setSelected(index)}><img src={asset(item.id)} alt="" loading="lazy" /><strong>{specialistById.get(item.id)!.name}</strong><small>{specialistById.get(item.id)!.role}</small></button>)}</div><div className="handoff-detail tone-lavender" key={mission.id} aria-live="polite"><div><small>{specialistById.get(mission.id)!.role} workspace</small><h3>{mission.title}</h3><p>{mission.copy}</p><a className="mission-link" href={`/workspace?bot=${mission.id}`}>Open {specialistById.get(mission.id)!.name}'s workspace <ArrowRight size={16} /></a></div><div className="structure-slip"><CircleDot size={18} /><span>Made for this job</span><strong>{mission.detail}</strong></div></div></div></section>
+  return <section className="handoff-section" data-reveal><div className="section-heading"><p className="eyebrow">A workspace for every mission</p><h2>Pick the job.<br /><span>Meet the right bot.</span></h2></div><div className="handoff-board"><div className="handoff-track mission-track" aria-label="Choose a bot mission">{missions.map((item, index) => <button className={`bot-${item.id}`} key={item.id} aria-pressed={selected === index} onClick={() => setSelected(index)}><img src={asset(item.id)} alt="" loading="lazy" /><strong>{specialistById.get(item.id)!.name}</strong><small>{specialistById.get(item.id)!.role}</small></button>)}</div><div className="handoff-detail" data-bot={mission.id} key={mission.id} aria-live="polite"><div><small>{specialistById.get(mission.id)!.role} workspace</small><h3>{mission.title}</h3><p>{mission.copy}</p><a className="mission-link" href={`/workspace?bot=${mission.id}`}>Open {specialistById.get(mission.id)!.name}'s workspace <ArrowRight size={16} /></a></div><div className="structure-slip"><CircleDot size={18} /><span>Made for this job</span><strong>{mission.detail}</strong></div></div></div></section>
 }
 
 function HowItWorks() {
@@ -150,5 +151,5 @@ export function LandingPage() {
       window.setTimeout(() => nameRef.current?.focus({ preventScroll: true }), reducedMotion ? 0 : 450)
     })
   }
-  return <main><Hero /><Team /><StartingPoints onSelect={selectPreset} /><BotMissions /><HowItWorks /><StrategyBuilder draft={draft} setDraft={setDraft} nameRef={nameRef} /><Capabilities /><FAQ /><section className="closing" data-reveal><div><p className="eyebrow">Your next move has company</p><h2>Ready to give<br /><span>your crew a job?</span></h2><a className="button button-ink" href="/workspace">Open your workspace <ArrowRight size={18} /></a></div><div className="closing-crew">{['dash', 'orbit', 'bloom'].map((id) => <img src={asset(id as SpecialistId)} alt="" key={id} />)}</div></section><footer><PackbotMark light /><p>Research. Snipe. Trade. Launch.</p><div><a href="#pack">The pack</a><a href="#starting-points">Starting points</a><a href="#questions">Questions</a><a href="/workspace">Workspace</a></div><small>Packbot. Your crypto crew.</small></footer></main>
+  return <main><Hero /><Team /><StartingPoints onSelect={selectPreset} /><BotMissions /><HowItWorks /><StrategyBuilder draft={draft} setDraft={setDraft} nameRef={nameRef} /><Capabilities /><FAQ /><section className="closing" data-reveal><div><p className="eyebrow">Your next move has company</p><h2>Ready to give<br /><span>your crew a job?</span></h2><a className="button button-ink" href="/workspace">Open your workspace <ArrowRight size={18} /></a></div><div className="closing-crew">{['scout', 'orbit', 'ledger'].map((id) => <img src={asset(id as SpecialistId)} alt="" key={id} />)}</div></section><footer><PackbotMark light /><p>Research. Snipe. Trade. Launch.</p><div><a href="#pack">The pack</a><a href="#starting-points">Starting points</a><a href="#questions">Questions</a><a href="/workspace">Workspace</a></div><small>Packbot. Your crypto crew.</small></footer></main>
 }
