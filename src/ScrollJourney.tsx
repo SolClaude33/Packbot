@@ -71,7 +71,7 @@ export function ScrollJourney() {
   return <section ref={sectionRef} className="how-section journey-section" id="how-it-works" data-reveal>
     <div className="section-heading"><p className="eyebrow">A good place to begin</p><h2>Your next job,<br /><span>in three simple steps.</span></h2></div>
     <div className="journey-layout">
-      <div ref={trackRef} className="bloom-track" aria-hidden="true"><span /><img ref={fallingRef} className="bloom-falling" src="/assets/bloom-falling.webp" alt="" loading="lazy" /><img ref={landedRef} className="bloom-landed" src="/assets/bloom.webp" alt="" loading="lazy" /></div>
+      <div ref={trackRef} className="bloom-track" aria-hidden="true"><img ref={fallingRef} className="bloom-falling" src="/assets/bloom-falling.webp" alt="" loading="lazy" /><img ref={landedRef} className="bloom-landed" src="/assets/bloom.webp" alt="" loading="lazy" /></div>
       <div className="journey-steps" data-reveal-group>{steps.map((step) => <article key={step.number} data-reveal-item><span className="step-number">{step.number}</span><div><h3>{step.title}</h3><p>{step.copy}</p><a href={step.link}>{step.label} <ArrowRight size={16} /></a></div></article>)}</div>
     </div>
   </section>

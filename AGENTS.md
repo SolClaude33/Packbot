@@ -12,7 +12,7 @@ From the root: `npm install`, `npm run dev` (5173), `npm run typecheck`, and `np
 
 ## Product and visual conventions
 
-Five smooth cartoon bots share black capsule eyes: plain purple Orbit, cobalt Scout with glasses, yellow Dash with a backwards cap, orange Ledger with visor, and lime Bloom with sprout. Preserve the approved logo/wordmark and pastel `main`; follow `DESIGN.md`. The teal crew greeting loops on desktop/mobile while visible; reduced motion retains the poster. Dedicated section poses show Orbit coordinating, Scout answering and Bloom falling beside the steps. Keep functional portraits in selectors. Use labeled controls and visible focus. No fur, demo/test labels, disclaimers, em dashes or invented claims.
+Five smooth cartoon bots share black capsule eyes: plain purple Orbit, cobalt Scout with glasses, yellow Dash with a backwards cap, orange Ledger with visor, and lime Bloom with sprout. Preserve the approved logo/wordmark; follow `DESIGN.md`. The teal greeting loops on desktop/mobile while visible; reduced motion retains the poster. Use dedicated research and crew-pile scenes. Bloom falls without a line beside the long steps. Use roomy compositions, functional selectors, labeled controls and visible focus. No fur, demo/test labels, disclaimers, em dashes or invented claims.
 
 ## Functionality and validation
 
@@ -20,4 +20,4 @@ Each saved setup belongs to one bot and uses its own editor. Keep V2 documents b
 
 ## Security and boundaries
 
-Development, dependencies, builds, and previews remain local. Published pastel `main` uses `SolClaude33/Packbot`; the vivid alternative stays local until requested. Preserve remote history and use normal pushes; do not create another repository or deploy to Vercel. No backend, financial execution, credential collection or analytics is authorized. Use Higgsfield only for planned assets, verified at most three credits per image; generated site videos use Kling 3.0 standard, silent. Keep credentials, tokens, private paths and confidential data out of code and notes.
+Development, dependencies, builds, and previews remain local. Nicol authorized publishing the approved vivid version to `SolClaude33/Packbot` on `main`; the pastel baseline remains in Git history. Preserve remote history and use normal pushes; do not create another repository. Nicol handles Vercel deployment. No backend, financial execution, credential collection or analytics is authorized. Use Higgsfield only for planned assets, verified at most three credits per image; generated site videos use Kling 3.0 standard, silent. Keep credentials, tokens, private paths and confidential data out of code and notes.
