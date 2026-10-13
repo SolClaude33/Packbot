@@ -1,5 +1,23 @@
 # Packbot design brief
 
+## Vivid alternative, 2026-10-13
+
+Nicol requested an alternative with stronger colors, more animation, a better hero and a logo with the character of fomo.family. Preserve the published pastel version in `main` at `acd0cbc`; implement the alternative locally on `codex/vivid-alternative`. The product roles and existing working frontend remain unchanged.
+
+Direction: a bold cartoon crew desk, organized around Orbit and four independent specialist jobs. The page invites users to choose a specialist or give Orbit an objective. The visible artifact is the crew's assignment map, whose four links open real bot workspaces. No fabricated activity or market information.
+
+References: https://fomo.family/ inspected at desktop, plus Nicol's supplied minimalist symbol. Preserve Packbot's compact lowercase vector letterforms and add a rounded bot face with two transparent capsule eyes inclined together by ten degrees. The face is a single monochrome silhouette with no mouth or extra detail, readable at 24px. Nicol specifically kept the letters and requested a face close to Packbot's earlier icon. Local references: `work/fomo-reference.jpg` and `work/fomo-symbol-reference.png`.
+
+Palette: orange #FF6534, cobalt #234DFF, acid lime #CEFF28, ink #161719 and warm white #FFFCF4. Ink on orange/lime; white on cobalt. Typography pairs bold rounded Nunito Sans headings with readable body copy and occasional Fredoka bot names. Saturated sections alternate with quiet reading surfaces. Rounded controls and broad corners preserve the character family.
+
+Hero: large left-aligned “Your next move. Bring the pack.”, two functioning actions, dominant Orbit on a lime shape and four smaller specialist access cards. Desktop keeps a 43/57 copy/scene relationship; mobile gives copy, actions and a self-contained character scene their own vertical space. Reuse the five approved transparent WebP characters. The earlier pastel scene/video remain available but do not organize this alternative's hero. No new remote media is needed.
+
+Section rhythm: warm-white team portrait and selector, broad starting-point rows, cobalt mission selector, simple usage steps, lime builder with a white form, bold capability blocks, readable FAQ and orange closing crew. Workspace retains its structure and calm fields, with the new wordmark and stronger navigation and selection colors.
+
+Motion: brief staggered hero entrance, once-drawn assignment connectors, hover/focus responses, short selection transitions and once-only section reveals. Use transform/opacity and clean up observers. Content stays readable without animation; reduced motion shows the final composition immediately. Preserve all existing presets, forms, bot editors, saved documents and navigation. The characters remain smooth cartoon bots with no fur, fuzzy anatomy or hair.
+
+Implementation and review: shared `Brand.tsx` lockup, `useReveal.ts` observer and four hand-authored SVG assets in `public/assets/`: full logo, symbol, wordmark and favicon. No new media generation or dependency is required. Hero stacks below 1241px to keep the crew map inside its frame. Desktop, 1100px and 390px captures checked the real page, selectors, preset/builder validation, workspace navigation, FAQ and footer. The own review setup was removed by its ID and title. Build/type checks and SVG XML validation passed. A fresh independent visual review found no material defects. Stronger backgrounds required explicit text colors in cards and search controls; the mobile editor's stacked flex basis now uses its content height.
+
 ## Current product: Orbit and four crypto specialists
 
 Nicol clarified on 2026-10-13 that Packbot's utility spans research, sniping, signal-led trading and preparation of the user's own token launch. Orbit is the head of the team, its orchestrator. Four specialist tools have their own jobs, editors and saved setups; Orbit organizes an objective into linked specialist jobs and handoffs. This supersedes the shared five-stage strategy, discovery-only Launch interpretation, and the unselected Portfolio proposal. Retain the approved cartoon characters, assets, color, typography and rounded layouts. Do not generate more media for this correction.

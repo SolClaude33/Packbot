@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { Check, Copy, Download, FileCheck2, Plus, Search, Trash2, Undo2, Upload, X } from 'lucide-react'
 import { BotEditor } from './editors/BotEditors'
+import { PackbotMark } from './Brand'
 import { makeDocument, specialistById, specialists, type BotConfig, type BotId, type WorkspaceDocument, type WorkspaceStore } from './model'
 import { loadWorkspace, prepareBlockedWorkspace, requestedBotFromLocation, saveWorkspace } from './storage'
 import { MAX_DOCUMENTS, mergeImportedStore, validateWorkspaceStore } from './validation'
 
 const asset = (id: BotId) => `/assets/${id}.webp`
-function PackbotMark() { return <a className="brand brand-light" href="/" aria-label="Packbot home"><span>Packbot</span><i /></a> }
 const actionLabel: Record<BotId, string> = { scout: 'Review inputs', dash: 'Check criteria', ledger: 'Review inputs', bloom: 'Review allocation', orbit: 'Review progress' }
 
 function downloadJson(value: unknown, filename: string) {
@@ -131,7 +131,7 @@ export function Workspace() {
   }
 
   return <main className="workspace-shell">
-    <header className="workspace-header"><PackbotMark />{fromOrbit ? <button className="back-link" onClick={returnToOrbit}>Back to Orbit</button> : <a href="/" className="back-link">Back to Packbot</a>}<div className="workspace-actions"><input ref={importRef} type="file" accept="application/json,.json" hidden onChange={(event) => importFile(event.target.files?.[0])} /><button onClick={() => importRef.current?.click()}><Upload size={16} />Import</button><button onClick={exportWorkspace} disabled={!store.documents.length}><Download size={16} />Export workspace</button></div></header>
+    <header className="workspace-header"><PackbotMark light />{fromOrbit ? <button className="back-link" onClick={returnToOrbit}>Back to Orbit</button> : <a href="/" className="back-link">Back to Packbot</a>}<div className="workspace-actions"><input ref={importRef} type="file" accept="application/json,.json" hidden onChange={(event) => importFile(event.target.files?.[0])} /><button onClick={() => importRef.current?.click()}><Upload size={16} />Import</button><button onClick={exportWorkspace} disabled={!store.documents.length}><Download size={16} />Export workspace</button></div></header>
     <nav className="bot-tabs" aria-label="Packbot workspaces">{specialists.map((bot) => <button key={bot.id} aria-pressed={store.selectedBot === bot.id} onClick={() => selectBot(bot.id)}><img src={asset(bot.id)} alt="" /><span><strong>{bot.name}</strong><small>{bot.role}</small></span><b>{store.documents.filter((item) => item.botId === bot.id).length}</b></button>)}</nav>
     <div className="workspace-layout">
       <aside className="strategy-sidebar"><div className="sidebar-heading"><span>{specialistById.get(store.selectedBot)!.role} setups</span><button onClick={create} aria-label={`Create ${specialistById.get(store.selectedBot)!.role.toLowerCase()} setup`}><Plus /></button></div><label className="search"><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search setups" aria-label="Search setups" /></label><div className="strategy-list">{visible.length ? visible.map((item) => <button className={active?.id === item.id ? 'active' : ''} onClick={() => commit((current) => ({ ...current, activeId: item.id }))} key={item.id}><img src={asset(item.botId)} alt="" /><span><strong>{item.title || 'Untitled setup'}</strong><small>{new Date(item.updatedAt).toLocaleDateString('en', { month: 'short', day: 'numeric' })}</small></span></button>) : <p className="sidebar-empty">{query ? 'No matching setups.' : `No ${specialistById.get(store.selectedBot)!.role.toLowerCase()} setups yet.`}</p>}</div>{deleted ? <button className="undo-button" onClick={undo}><Undo2 size={16} />Undo delete</button> : null}</aside>

@@ -12,7 +12,7 @@ From the root, use `npm install`, `npm run dev` (5173), `npm run typecheck`, and
 
 ## Product and visual conventions
 
-Packbot now uses a playful, colorful world of five smooth cartoon bots: Orbit, Scout, Dash, Ledger, and Bloom. Nicol clarified that the characters must have no fur, fuzzy texture, or fluffy anatomy. Use rounded display typography, readable rounded body text, lavender, peach, sky, mint and lime surfaces, generous 24–40px corners, and pill controls. Follow the current revision in `DESIGN.md`. Use semantic HTML, clearly labeled controls, visible keyboard focus, and reduced-motion support. New interface copy must not include demo/test labels, disclaimers, em dashes, invented testimonials, or performance claims.
+Packbot has five smooth cartoon bots: Orbit, Scout, Dash, Ledger, and Bloom, with no fur, fuzzy texture, or fluffy anatomy. The vivid alternative uses cobalt, orange, acid lime, ink and warm white, a custom lowercase vector wordmark, rounded bold typography and pill controls. Preserve the earlier pastel design in `main`; follow the current alternative in `DESIGN.md`. Use semantic HTML, labeled controls, visible focus and reduced-motion support. New interface copy must not include demo/test labels, disclaimers, em dashes, invented testimonials, or performance claims.
 
 ## Functionality and validation
 
