@@ -12,7 +12,7 @@ From the root: `npm install`, `npm run dev` (5173), `npm run typecheck`, and `np
 
 ## Product and visual conventions
 
-Five smooth cartoon bots share black capsule eyes: plain purple Orbit, cobalt Scout with glasses, yellow Dash with a backwards cap, orange Ledger with visor, and lime Bloom with sprout. Preserve the approved logo/wordmark and pastel `main`; follow `DESIGN.md`. The teal hero shows the whole crew. Its silent greeting plays once with click replay; mobile/reduced motion keep the poster. Bloom descends beside the usage steps, with a static reduced-motion state. Use labeled controls and visible focus. No fur, demo/test labels, disclaimers, em dashes or invented claims.
+Five smooth cartoon bots share black capsule eyes: plain purple Orbit, cobalt Scout with glasses, yellow Dash with a backwards cap, orange Ledger with visor, and lime Bloom with sprout. Preserve the approved logo/wordmark and pastel `main`; follow `DESIGN.md`. The teal crew greeting loops on desktop/mobile while visible; reduced motion retains the poster. Dedicated section poses show Orbit coordinating, Scout answering and Bloom falling beside the steps. Keep functional portraits in selectors. Use labeled controls and visible focus. No fur, demo/test labels, disclaimers, em dashes or invented claims.
 
 ## Functionality and validation
 
