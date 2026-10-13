@@ -25,7 +25,7 @@ The production preview runs at `http://127.0.0.1:4173`. The `/workspace` route i
 
 Orbit organizes goals and specialist handoffs, creates linked setups, and tracks task progress. Scout keeps research sources, questions, and findings. Dash holds sniper filters and checks candidate metrics. Ledger organizes signals and trade rules, with long/short price calculations. Bloom prepares token details, allocations, liquidity, and launch checklists.
 
-Each setup belongs to one bot. The workspace supports save, search, duplication, deletion with undo, and JSON export. Validated V1 and V2 imports merge into the workspace. Existing V1 records migrate with their original notes preserved, and the original browser key remains as a backup. V2 documents use versioned local storage. Production character assets and the silent desktop hero loop are served from `public/assets/`.
+Each setup belongs to one bot. The workspace supports save, search, duplication, deletion with undo, and JSON export. Validated V1 and V2 imports merge into the workspace. Existing V1 records migrate with their original notes preserved, and the original browser key remains as a backup. V2 documents use versioned local storage. Production characters and the silent crew greeting are served from `public/assets/`. The greeting plays once on desktop and can replay by clicking the scene; mobile and reduced motion retain the poster. Bloom follows the scroll beside the three usage steps.
 
 ## Import into Vercel
 

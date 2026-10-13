@@ -4,6 +4,11 @@ export function useReveal() {
   useEffect(() => {
     const elements = Array.from(document.querySelectorAll<HTMLElement>('[data-reveal]'))
     if (!elements.length) return
+    elements.forEach((element) => {
+      element.querySelectorAll<HTMLElement>('[data-reveal-item]').forEach((item, index) => {
+        item.style.setProperty('--reveal-index', String(index))
+      })
+    })
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
     let observer: IntersectionObserver | null = null
 
@@ -26,6 +31,13 @@ export function useReveal() {
 
     start()
     motion.addEventListener('change', start)
-    return () => { motion.removeEventListener('change', start); observer?.disconnect(); elements.forEach((element) => element.classList.remove('is-revealed', 'reveal-pending')) }
+    return () => {
+      motion.removeEventListener('change', start)
+      observer?.disconnect()
+      elements.forEach((element) => {
+        element.classList.remove('is-revealed', 'reveal-pending')
+        element.querySelectorAll<HTMLElement>('[data-reveal-item]').forEach((item) => item.style.removeProperty('--reveal-index'))
+      })
+    }
   }, [])
 }

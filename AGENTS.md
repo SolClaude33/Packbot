@@ -12,7 +12,7 @@ From the root: `npm install`, `npm run dev` (5173), `npm run typecheck`, and `np
 
 ## Product and visual conventions
 
-Packbot has five smooth sculptural cartoon bots with capsule eyes: graphite Orbit, cobalt Scout, cyan Dash, orange Ledger, and lime Bloom. No fur or fuzzy anatomy. Preserve the approved minimalist face and lowercase wordmark. Orange, cobalt and lime sections alternate with quiet reading surfaces; follow `DESIGN.md` and preserve pastel `main`. Orbit's silent greeting plays once, with click replay; mobile and reduced motion mount a static image. Use semantic HTML, labeled controls and visible focus. No demo/test labels, disclaimers, em dashes, invented testimonials or performance claims.
+Five smooth cartoon bots share black capsule eyes: plain purple Orbit, cobalt Scout with glasses, yellow Dash with a backwards cap, orange Ledger with visor, and lime Bloom with sprout. Preserve the approved logo/wordmark and pastel `main`; follow `DESIGN.md`. The teal hero shows the whole crew. Its silent greeting plays once with click replay; mobile/reduced motion keep the poster. Bloom descends beside the usage steps, with a static reduced-motion state. Use labeled controls and visible focus. No fur, demo/test labels, disclaimers, em dashes or invented claims.
 
 ## Functionality and validation
 
